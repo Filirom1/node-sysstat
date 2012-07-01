@@ -3,8 +3,9 @@
 var systat = require('../lib/index'),
   _ = require('underscore');
 
-systat(['-A', '1']).on('stats', toCSV);
+process.argv.splice(0,2);
 
+systat(process.argv).on('stats', toCSV);
 
 function toCSV(stats){
   if(!module.exports.csv){
